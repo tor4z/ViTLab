@@ -1,0 +1,6 @@
+arch:
+  VitTrainer: arch/vit.yml
+
+
+dataset:
+  BirdDataset: data/bird.yml
