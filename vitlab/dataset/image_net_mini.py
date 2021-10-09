@@ -5,18 +5,18 @@ from cvutils import imread
 from cvutils import transform as tf
 from mlutils import mod
 
-from .utils import load_pickle
+from .utils import load_pickle, dataset_split
 from .base import BaseDataset
 
 
-__all__ = ['BirdDataset']
+__all__ = ['ImageNetMiniDataset']
 
 
 Set = List[Mapping[str, Any]]
 
 
 @mod.register('dataset')
-class BirdDataset(BaseDataset):
+class ImageNetMiniDataset(BaseDataset):
     def __init__(
         self,
         opt: Opts,
@@ -35,39 +35,29 @@ class BirdDataset(BaseDataset):
             self.transformer = tf.Compose([
                 tf.TransposeTorch(),
                 tf.Normalize(),
+                tf.Resize(opt.input_size),
                 tf.ToTensor()
             ])
         else:
             self.transformer = tf.Compose([
                 tf.TransposeTorch(),
                 tf.Normalize(),
+                tf.Resize(opt.input_size),
                 tf.ToTensor()
             ])
 
     @classmethod
     def get_test_set(cls, opt: Opts) -> Set:
-        output = []
         all_set = load_pickle(opt.meta_path)
-        for item in all_set:
-            if item['dataset'] == 'test':
-                output.append(item)
-        return output
+        return all_set['val_set']
 
     @classmethod
     def get_train_val_set(cls, opt: Opts) -> Tuple[Set, Set]:
-        training_output = []
-        val_output = []
         all_set = load_pickle(opt.meta_path)
-        for item in all_set:
-            if item['dataset'] == 'train':
-                training_output.append(item)
-            elif item['dataset'] == 'valid':
-                val_output.append(item)
-            else:
-                # skip test data
-                pass
+        train_set = all_set['train_set']
+        val_set = all_set['val_set']
 
-        return training_output, val_output
+        return train_set, val_set
 
     def __len__(self) -> int:
         return len(self.dataset)

@@ -1,11 +1,24 @@
-data_root: /data/cwj/data/ink_and_wash
-gen_root: /data/cwj/data/ink_and_wash/gen
+data_root: /data/cwj/data/bird
+gen_root: /data/cwj/data/bird/gen
+meta_path: /data/cwj/data/bird/meta.pkl
+meta_csv: /data/cwj/data/bird/Bird.csv
+class_dict_csv: /data/cwj/data/bird/class_dict.csv
 
-meta_path: /data/cwj/data/ink_and_wash/meta_path.pkl
 
 image_chan: 3
 input_size: 224
-training_proportion: 0.8
+num_classes: 300
+# training_proportion: 0.8
 # data_len: 3000
-enable_resize: false
+# enable_resize: false
 rand_k: 3
+
+image_mean:
+  - 117.50629243
+  - 110.0913015
+  - 110.83047158
+
+image_std:
+  - 49.58736691
+  - 55.09195781
+  - 50.37909258

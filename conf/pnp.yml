@@ -1,6 +1,10 @@
 arch:
-  VitTrainer: arch/vit.yml
+  ViTTrainer: arch/vit.yml
+  ResNet50Trainer: arch/resnet.yml
+  ResNet101Trainer: arch/resnet.yml
 
 
 dataset:
   BirdDataset: data/bird.yml
+  DogDataset: data/dog.yml
+  ImageNetMiniDataset: data/imagenet_mini.yml

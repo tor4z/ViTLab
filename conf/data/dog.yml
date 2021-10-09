@@ -1,0 +1,23 @@
+data_root: /data/cwj/data/stanford_dogs
+meta_path: /data/cwj/data/stanford_dogs/meta.pkl
+train_mat: /data/cwj/data/stanford_dogs/lists/train_list.mat
+test_mat: /data/cwj/data/stanford_dogs/lists/test_list.mat
+
+
+image_chan: 3
+input_size: 224
+num_classes: 120
+training_proportion: 0.8
+# data_len: 3000
+# enable_resize: false
+rand_k: 3
+
+image_mean:
+  - 112.5116725
+  - 110.05321837
+  - 113.77582327
+
+image_std:
+  - 55.05448955
+  - 59.35579282
+  - 53.12250645

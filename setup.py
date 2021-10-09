@@ -12,7 +12,7 @@ def gen_code():
 __version__ = f'0.0.1.{gen_code()}'
 
 
-setup(name='vit_lab',
+setup(name='vitlab',
       version=__version__,
       description='Vit Lab',
       author='tor4z',
@@ -25,12 +25,14 @@ setup(name='vit_lab',
             'jupyterlab',
             'matplotlib',
       ],
-      packages=['vit_lab',
-                'inw_cls.dataset',
-                'inw_cls.network',
-                'inw_cls.network.vit',
-                'inw_cls.trainer',
-                'inw_cls.trainer.vit',
-                'inw_cls.utils',
+      packages=['vitlab',
+                'vitlab.dataset',
+                'vitlab.network',
+                'vitlab.network.vit',
+                'vitlab.network.resnet',
+                'vitlab.trainer',
+                'vitlab.trainer.vit',
+                'vitlab.trainer.resnet',
+                'vitlab.utils',
       ]
 )

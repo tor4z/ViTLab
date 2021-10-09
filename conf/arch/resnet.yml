@@ -2,8 +2,6 @@ import:
   - ../common
 
 normalization: softmax
-data_len: 300
-
 ###################
 # Training Config
 ###################
@@ -13,11 +11,7 @@ epochs: 200
 lr: 1.0e-2
 weight_decay: 0.0
 
-###################
-# Model Config
-###################
-patch_sizes: 32
-patch_strides: 16
-clip_pretrained: false
-checkpoint: false
-checkpoint_nchunks: 2
+
+resnet_kws:
+  pretrained: false
+  progress: true
